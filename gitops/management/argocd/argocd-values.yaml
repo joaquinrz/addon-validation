@@ -1,3 +1,6 @@
+global:
+  domain: argocd.kubelab.pro
+
 configs:
   rbac:
     policy.default: 'role:readonly'
