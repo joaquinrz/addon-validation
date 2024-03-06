@@ -15,7 +15,7 @@ spec:
   project: infra
   sources:
   - repoURL: 'https://charts.bitnami.com/bitnami'
-    targetRevision: 6.35.0
+    targetRevision: 6.36.0
     chart: external-dns
     helm:
       valueFiles:
