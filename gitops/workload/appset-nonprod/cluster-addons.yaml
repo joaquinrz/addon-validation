@@ -14,12 +14,12 @@ spec:
                 - values:
                     component: k8s-dashboard
                     branchOrTag: main
-                - values:
-                    component: opa
-                    branchOrTag: main
-                - values:
-                    component: cert-manager
-                    branchOrTag: main
+                # - values:
+                #     component: opa
+                #     branchOrTag: main
+                # - values:
+                #     component: cert-manager
+                #     branchOrTag: main
           - clusters:
               selector:
                 matchExpressions:
@@ -51,4 +51,3 @@ spec:
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
-          - FluxSubsystem=false
