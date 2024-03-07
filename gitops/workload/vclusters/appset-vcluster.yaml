@@ -9,7 +9,7 @@
 #       elements:
 #       - cluster: management
 #         url: https://kubernetes.default.svc
-#         workload-cluster: nonprod-westus1
+#         workload-cluster: test-westus1
 #       - cluster: management
 #         url: https://kubernetes.default.svc
 #         workload-cluster: prod-southus1        
