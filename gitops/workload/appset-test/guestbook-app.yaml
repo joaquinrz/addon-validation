@@ -11,12 +11,12 @@ spec:
       selector:
         matchLabels:
           policy.kyverno.io/synchronize: enable
-          env: nonprod
+          env: test
   template:
     metadata:
       name: '{{name}}-guestbook'
     spec:
-      project: workload-nonprod
+      project: workload-test
       source:
         repoURL: https://github.com/argoproj/argo-cd.git
         targetRevision: HEAD

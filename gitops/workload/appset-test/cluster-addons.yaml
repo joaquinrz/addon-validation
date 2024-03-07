@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: cluster-addons-nonprod
+  name: cluster-addons-test
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "5"
@@ -29,7 +29,7 @@ spec:
                     - "true"
                 matchLabels:
                   policy.kyverno.io/synchronize: enable
-                  env: nonprod
+                  env: test
   template:
     metadata:
       name: '{{values.component}}-{{name}}'
@@ -38,11 +38,11 @@ spec:
         component-version: '{{values.branchOrTag}}'
         cluster-id: '{{name}}'
     spec:
-      project: workload-nonprod
+      project: workload-test
       source:
         repoURL: https://github.com/joaquinrz/cluster-addons-{{values.component}}.git
         targetRevision: '{{values.branchOrTag}}'
-        path: deploy/nonprod
+        path: deploy/test
       destination:
         server: '{{server}}' 
         namespace: cluster-addons
