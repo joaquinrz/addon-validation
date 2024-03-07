@@ -12,14 +12,14 @@ spec:
           - list:
               elements:
                 - values:
-                    component: k8s-dashboard
-                    branchOrTag: main
-                # - values:
-                #     component: opa
-                #     branchOrTag: main
-                # - values:
-                #     component: cert-manager
-                #     branchOrTag: main
+                  component: k8s-dashboard
+                  branchOrTag: test
+                - values:
+                  component: opa
+                  branchOrTag: test
+                - values:
+                  component: cert-manager
+                  branchOrTag: test
           - clusters:
               selector:
                 matchExpressions:
