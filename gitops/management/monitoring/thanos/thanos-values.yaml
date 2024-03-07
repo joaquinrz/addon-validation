@@ -1,0 +1,84 @@
+objstoreConfig: |-
+  type: FILESYSTEM
+  config:
+    directory: "/var/thanos/receive/data"
+  prefix: 
+
+ruler:
+  enabled: true
+  
+query:
+  enabled: true
+  autoscaling:
+    enabled: true
+    minReplicas: "1"
+    maxReplicas: "10"
+    targetCPU: "60"
+    targetMemory: "60"
+  stores:
+    - thanos-storegateway.thanos.svc.cluster.local:10901
+
+queryFrontend:
+  enabled: true
+  autoscaling:
+    enabled: true
+    minReplicas: "1"
+    maxReplicas: "10"
+    targetCPU: "60"
+    targetMemory: "60"
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+    hostname: query.thanos.kubelab.pro
+    ingressClassName: nginx
+    tls: true
+
+bucketweb:
+  enabled: true
+  refresh: "10m"
+
+compactor:
+  enabled: true
+  ## Resolution and Retention flags
+  ## @param compactor.retentionResolutionRaw Resolution and Retention flag
+  ## @param compactor.retentionResolution5m Resolution and Retention flag
+  ## @param compactor.retentionResolution1h Resolution and Retention flag
+  ##
+  retentionResolutionRaw: 180d
+  retentionResolution5m: 2y
+  retentionResolution1h: 5y
+
+  ## Persistence parameters
+  ##
+  persistence:
+    ## @param compactor.persistence.enabled Enable data persistence using PVC(s) on Thanos Compactor pods
+    ##
+    enabled: true
+
+storegateway:
+  enabled: true
+
+
+ruler:
+  enabled: false
+
+receive:
+  enabled: true
+  persistence:
+    enabled: true
+  tsdbRetention: 90d
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+    hostname: receive.thanos.kubelab.pro
+    ingressClassName: nginx
+    tls: true
+
+# metrics:
+#   enabled: true
+#   serviceMonitor:
+#     enabled: true
+#     labels:
+#       release: prom
