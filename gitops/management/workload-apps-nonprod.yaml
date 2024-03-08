@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-app-workload-test
+  name: root-app-workload-nonprod
   namespace: argocd
 spec:
   destination:
@@ -10,7 +10,7 @@ spec:
     server: https://kubernetes.default.svc
   project: infra
   source:
-    path: gitops/workload/appset-test
+    path: gitops/workload/appset-nonprod
     targetRevision: main
     directory:
       recurse: true
