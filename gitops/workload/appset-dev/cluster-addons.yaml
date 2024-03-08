@@ -39,7 +39,7 @@ spec:
         path: deploy
       destination:
         server: https://kubernetes.default.svc
-        namespace: cluster-addons
+        namespace: cluster-addons-{{name}}
       syncPolicy:
         automated:
           selfHeal: true
