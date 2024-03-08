@@ -38,11 +38,10 @@ spec:
         targetRevision: '{{values.branchOrTag}}'
         path: deploy
       destination:
-        server: '{{server}}' 
+        server: https://kubernetes.default.svc
         namespace: cluster-addons
       syncPolicy:
         automated:
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
-          - ServerSideApply=true
