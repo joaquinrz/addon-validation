@@ -36,12 +36,13 @@ spec:
       source:
         repoURL: https://github.com/joaquinrz/cluster-addons-{{values.component}}.git
         targetRevision: '{{values.branchOrTag}}'
-        path: deploy/prod
+        path: 'deploy/overlays/{{name}}'
       destination:
-        server: '{{server}}' 
-        namespace: cluster-addons
+        server: https://kubernetes.default.svc
+        namespace: cluster-addons-{{values.component}}
       syncPolicy:
         automated:
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
+          - ServerSideApply=true
