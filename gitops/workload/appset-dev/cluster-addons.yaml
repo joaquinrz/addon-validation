@@ -38,7 +38,7 @@ spec:
         targetRevision: '{{values.branchOrTag}}'
         path: 'deploy/overlays/{{name}}'
       destination:
-        server: '{{server}}'
+        server: https://kubernetes.default.svc
         namespace: cluster-addons-{{values.component}}
       syncPolicy:
         automated:
