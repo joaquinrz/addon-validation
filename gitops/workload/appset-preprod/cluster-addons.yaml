@@ -12,13 +12,7 @@ spec:
           - list:
               elements:
                 - values:
-                    component: k8s-dashboard
-                    branchOrTag: preprod
-                - values:
-                    component: opa
-                    branchOrTag: preprod
-                - values:
-                    component: cert-manager
+                    component: prometheus
                     branchOrTag: preprod
           - clusters:
               selector:
