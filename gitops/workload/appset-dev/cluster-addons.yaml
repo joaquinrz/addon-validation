@@ -36,9 +36,9 @@ spec:
       source:
         repoURL: https://github.com/joaquinrz/cluster-addons-{{values.component}}.git
         targetRevision: '{{values.branchOrTag}}'
-        path: deploy/overlays/{{name}}
+        path: 'deploy/overlays/{{name}}'
       destination:
-        server: {{server}}
+        server: '{{server}}'
         namespace: cluster-addons-{{values.component}}
       syncPolicy:
         automated:
