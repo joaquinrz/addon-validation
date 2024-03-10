@@ -16,10 +16,10 @@ spec:
       name: '{{name}}-helper'
     spec:
       project: workload-infra
-      source:
-        repoURL: {{repoURL}}
+      sources:
+      - repoURL: 'https://github.com/joaquinrz/addon-validation.git'
         targetRevision: main
-        path: "helper"
+        path: helper
       destination:
         server: '{{server}}'
         namespace: podinfo-helper
