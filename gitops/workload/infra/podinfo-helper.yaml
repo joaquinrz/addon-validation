@@ -13,13 +13,13 @@ spec:
           policy.kyverno.io/synchronize: enable
   template:
     metadata:
-      name: '{{name}}-helper'
+      name: '{{name}}-podinfo-helper'
     spec:
       project: workload-infra
       sources:
       - repoURL: 'https://github.com/joaquinrz/addon-validation.git'
         targetRevision: main
-        path: helper
+        path: podinfo-helper
       destination:
         server: '{{server}}'
         namespace: podinfo-helper
