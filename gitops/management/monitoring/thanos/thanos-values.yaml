@@ -48,8 +48,8 @@ compactor:
 
   # Setting these to low values to prevent volume from filling up
   retentionResolutionRaw: 2d 
-  retentionResolution5m: 2d
-  retentionResolution1h: 7d
+  retentionResolution5m: 15d
+  retentionResolution1h: 30d
 
   ## Persistence parameters
   ##
