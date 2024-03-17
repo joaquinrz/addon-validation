@@ -1,8 +1,15 @@
+# objstoreConfig: |-
+#   type: FILESYSTEM
+#   config:
+#     directory: "/var/thanos/receive/data"
+#   prefix: 
+
 objstoreConfig: |-
-  type: FILESYSTEM
+  type: AZURE
   config:
-    directory: "/var/thanos/receive/data"
-  prefix: 
+    storage_account: "thanoskubecon24"
+    user_assigned_id: "06caf5c7-da8d-42bc-bbf7-631378e65cd4"
+    container: "thanos"
 
 ruler:
   enabled: true
